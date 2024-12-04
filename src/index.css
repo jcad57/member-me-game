@@ -1,0 +1,268 @@
+@font-face {
+  font-family: "PressStart2P";
+  src: url("../assets/fonts/PressStart2P-Regular.ttf");
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  font-family: "PressStart2P";
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  width: fit-content;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+h1 {
+  font-family: "PressStart2P";
+}
+
+.game-container {
+  display: grid;
+  width: 100%;
+  height: 100dvh;
+  background: radial-gradient(#414141, #141414);
+}
+
+.game-mode-container {
+  margin-block: 3rem;
+}
+
+.game-mode-cell {
+  outline: 4px solid white;
+  /* border-radius: 10px; */
+  background-color: black;
+  padding: 0.75rem;
+  color: white;
+  max-width: 175px;
+  /* TODO: fix clip path to match design spec
+
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px)); */
+}
+
+.active-game-mode {
+  outline: 8px solid black;
+  background-color: #249eea;
+  color: black;
+}
+
+.active-difficulty-setting {
+  color: yellow;
+}
+
+.theme-icon-container {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.theme-icon {
+  width: 30px;
+  aspect-ratio: 1;
+}
+
+.active-theme {
+  outline: 3px solid white;
+}
+
+.hud-container {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  min-height: 90px;
+}
+
+.lives-container {
+  text-align: left;
+}
+
+.bonuses-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 84px;
+  text-align: center;
+  color: yellow;
+  /* margin-bottom: 2.5rem; */
+}
+
+.message {
+  margin-bottom: 0.25rem;
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Invisible */
+  }
+}
+
+.flash-text {
+  animation: flash 0.35s linear 3; /* Flash three times */
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-inline: 1.5rem;
+}
+
+.grid-square {
+  outline: 4px solid white;
+  background-color: #249eea;
+  aspect-ratio: 1;
+}
+
+/* Utility Classes */
+
+.fnt-size-md {
+  font-size: 1rem;
+}
+
+.fnt-size-sm {
+  font-size: 0.688rem;
+}
+
+.text-upper {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  margin-inline: 1.25rem;
+  gap: 1rem;
+}
+
+.content-section {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.section-heading {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.grid-col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.35rem;
+}
+
+.place-items-center {
+  place-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.btn-container {
+  display: grid;
+  place-items: center;
+  gap: 1.688rem;
+}
+
+.heading {
+  text-align: center;
+  color: white;
+  /* Text Stroke */
+  text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83487px 0.981584px 0px, rgb(0, 0, 0) 2.35766px 1.85511px 0px,
+    rgb(0, 0, 0) 1.62091px 2.52441px 0px, rgb(0, 0, 0) 0.705713px 2.91581px 0px, rgb(0, 0, 0) -0.287171px 2.98622px 0px,
+    rgb(0, 0, 0) -1.24844px 2.72789px 0px, rgb(0, 0, 0) -2.07227px 2.16926px 0px, rgb(0, 0, 0) -2.66798px 1.37182px 0px,
+    rgb(0, 0, 0) -2.96998px 0.42336px 0px, rgb(0, 0, 0) -2.94502px -0.571704px 0px,
+    rgb(0, 0, 0) -2.59586px -1.50383px 0px, rgb(0, 0, 0) -1.96093px -2.27041px 0px,
+    rgb(0, 0, 0) -1.11013px -2.78704px 0px, rgb(0, 0, 0) -0.137119px -2.99686px 0px,
+    rgb(0, 0, 0) 0.850987px -2.87677px 0px, rgb(0, 0, 0) 1.74541px -2.43999px 0px, rgb(0, 0, 0) 2.44769px -1.73459px 0px,
+    rgb(0, 0, 0) 2.88051px -0.838247px 0px;
+}
+
+.game-title {
+  font-size: 3rem;
+  margin-bottom: 5rem;
+}
+
+.game-subtitle {
+  font-size: 2rem;
+}
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  list-style: none;
+}
