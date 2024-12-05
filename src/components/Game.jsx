@@ -3,6 +3,7 @@ import Bonuses from "./Bonuses";
 import Button from "./Button";
 import Grid from "./Grid";
 import Hud from "./Hud";
+import GameOverDialogue from "./GameOverDialogue";
 
 function Game({ state, dispatch }) {
   const [timer, setTimer] = useState(state.timer ? 120 : null);
@@ -17,9 +18,6 @@ function Game({ state, dispatch }) {
     return () => clearInterval(gameTimer);
   }, [timer, state.isPlaying]);
 
-  // TODO:
-  // Position absolute the messages maybe?
-
   return (
     <div style={{ background: `#${state.theme[0]}` }} className="game-container  ">
       <div className="">
@@ -29,6 +27,7 @@ function Game({ state, dispatch }) {
       <div className="btn-container">
         <Button type="is-warning">End Game</Button>
       </div>
+      <GameOverDialogue state={state} />
     </div>
   );
 }

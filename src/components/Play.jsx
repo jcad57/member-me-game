@@ -82,37 +82,44 @@ function reducer(state, action) {
       let newMatchedCards = [];
       let newScore;
       let newMultiplier;
+      let newLives;
+      let newMessage;
+      let newStatus;
 
       const [firstFlippedCard, secondFlippedCard] = state.flippedCards;
       // Check if the two cards are a match using their index
       if (state.randomCards[firstFlippedCard].content === state.randomCards[secondFlippedCard].content) {
-        // Add to matched array
+        // If so add to matched array
         newMatchedCards = [...state.matchedCards, firstFlippedCard, secondFlippedCard];
-        // Update score & multiplier
+        // Update score / multiplier / lives / message
         newScore = state.score + 5 * state.multiplier;
         newMultiplier = state.multiplier < 3 ? state.multiplier + 1 : state.multiplier;
+        newLives = state.lives + 1;
+        newMessage = ["Match!", "+1 Heart", `Multiplier: ${newMultiplier}`];
       } else {
-        // Reset
-        return {
-          ...state,
-          lives: state.lives > 0 ? state.lives - 1 : 0,
-          multiplier: 1,
-          message: ["No match", "-1 Heart"],
-        };
+        // No match: subtract lives, reset multiplier, check for game-over
+        // If lives will not equal 0 on this turn, then subtract 1 from lives
+        if (state.lives > 1) newLives = state.lives - 1;
+        if (state.lives === 1) newStatus = "game-over";
+        else newStatus = "play";
+        newMultiplier = 1;
+        newMessage = ["No match", "-1 Heart"];
       }
       return {
         ...state,
+        // status: newStatus,
         matchedCards: newMatchedCards,
         score: newScore,
         multiplier: newMultiplier,
-        lives: state.lives + 1,
-        message: ["Match!", "+1 Heart", `Multiplier: ${newMultiplier}`],
+        lives: newLives,
+        message: newMessage,
       };
     }
     case "CHECK_FOR_WIN": {
       if (state.matchedCards.length === state.randomCards.length) {
         return {
           ...state,
+          status: "game-over",
           isPlaying: false,
           addNewScoreLeaderboard: true,
           message: ["You win!"],
