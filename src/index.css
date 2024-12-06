@@ -138,6 +138,8 @@ body {
 }
 
 .lives-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   text-align: left;
 }
 
@@ -272,7 +274,13 @@ body {
 
 .game-over-dialogue-container {
   position: absolute;
-  left: calc(50vw - 50%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: #141414;
+  border-color: white;
+  color: white;
 }
 
 @media (min-width: 390px) {

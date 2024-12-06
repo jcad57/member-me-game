@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Bonuses from "./Bonuses";
 import Button from "./Button";
 import Grid from "./Grid";
 import Hud from "./Hud";
@@ -27,7 +26,7 @@ function Game({ state, dispatch }) {
       <div className="btn-container">
         <Button type="is-warning">End Game</Button>
       </div>
-      <GameOverDialogue state={state} />
+      <GameOverDialogue score={state.score} isPlaying={state.isPlaying} />
     </div>
   );
 }

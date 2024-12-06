@@ -5,7 +5,6 @@ import Game from "./Game";
 import { useReducer } from "react";
 
 import defaultSettings from "../data/default-settings";
-import messages from "../data/messages";
 
 const allGameModes = defaultSettings.defaultSettings;
 
@@ -80,11 +79,10 @@ function reducer(state, action) {
     }
     case "CHECK_FOR_MATCH": {
       let newMatchedCards = [];
-      let newScore;
+      let newScore = state.score;
       let newMultiplier;
       let newLives;
       let newMessage;
-      let newStatus;
 
       const [firstFlippedCard, secondFlippedCard] = state.flippedCards;
       // Check if the two cards are a match using their index
@@ -99,17 +97,23 @@ function reducer(state, action) {
       } else {
         // No match: subtract lives, reset multiplier, check for game-over
         // If lives will not equal 0 on this turn, then subtract 1 from lives
-        if (state.lives > 1) newLives = state.lives - 1;
-        if (state.lives === 1) newStatus = "game-over";
-        else newStatus = "play";
+        if (state.lives > 0) newLives = state.lives - 1;
+        if (state.lives === 1) {
+          return {
+            ...state,
+            lives: 0,
+            isPlaying: false,
+            message: ["Game Over"],
+          };
+        }
         newMultiplier = 1;
+        newMatchedCards = state.matchedCards;
         newMessage = ["No match", "-1 Heart"];
       }
       return {
         ...state,
-        // status: newStatus,
         matchedCards: newMatchedCards,
-        score: newScore,
+        score: newScore ? newScore : state.score,
         multiplier: newMultiplier,
         lives: newLives,
         message: newMessage,
@@ -119,7 +123,6 @@ function reducer(state, action) {
       if (state.matchedCards.length === state.randomCards.length) {
         return {
           ...state,
-          status: "game-over",
           isPlaying: false,
           addNewScoreLeaderboard: true,
           message: ["You win!"],
