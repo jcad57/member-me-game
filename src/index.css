@@ -238,9 +238,13 @@ body {
 .btn-container {
   display: grid;
   place-items: center;
-  gap: 1.688rem;
+  gap: 0.5rem;
+  min-width: 200px;
 }
 
+.game-description {
+  color: white;
+}
 .heading {
   text-align: center;
   color: white;
@@ -281,6 +285,7 @@ body {
   background-color: #141414;
   border-color: white;
   color: white;
+  max-width: 338px;
 }
 
 @media (min-width: 390px) {

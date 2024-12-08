@@ -11,11 +11,16 @@ function Game({ state, dispatch }) {
     if (!state.isPlaying || timer <= 0) return;
 
     const gameTimer = setInterval(() => {
+      if (timer === 1) {
+        setTimer(0);
+        dispatch({ type: "END_GAME" });
+        return;
+      }
       setTimer((prevTime) => prevTime - 1);
     }, 1000);
 
     return () => clearInterval(gameTimer);
-  }, [timer, state.isPlaying]);
+  }, [timer, state.isPlaying, dispatch]);
 
   return (
     <div style={{ background: `#${state.theme[0]}` }} className="game-container  ">
@@ -24,9 +29,12 @@ function Game({ state, dispatch }) {
         <Grid state={state} dispatch={dispatch} />
       </div>
       <div className="btn-container">
-        <Button type="is-warning">End Game</Button>
+        <Button type="is-warning" onClick={() => dispatch({ type: "END_GAME" })}>
+          End Game
+        </Button>
       </div>
-      <GameOverDialogue score={state.score} isPlaying={state.isPlaying} />
+      {/* Game over pop up that displays score and options */}
+      <GameOverDialogue state={state} dispatch={dispatch} />
     </div>
   );
 }

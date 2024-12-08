@@ -1,6 +1,7 @@
 import GameModes from "./GameModes";
 import Settings from "./Settings";
 import Game from "./Game";
+import Leaderboard from "./Leaderboard";
 
 import { useReducer } from "react";
 
@@ -10,7 +11,7 @@ const allGameModes = defaultSettings.defaultSettings;
 
 function reducer(state, action) {
   switch (action.type) {
-    // INITIAL GAME SETTINGS
+    // CHANGE INITIAL GAME SETTINGS
     case "CHANGE_GAME_STATUS": {
       return {
         ...state,
@@ -30,6 +31,8 @@ function reducer(state, action) {
         timer: allGameModes[gameModeIndex].time,
         lives: allGameModes[gameModeIndex].lives,
         sound: allGameModes[gameModeIndex].sound,
+        changeableSettings: allGameModes[gameModeIndex].changeableSettings,
+        description: allGameModes[gameModeIndex].description,
       };
     }
     case "CHANGE_THEME": {
@@ -103,6 +106,7 @@ function reducer(state, action) {
             ...state,
             lives: 0,
             isPlaying: false,
+            gameWin: false,
             message: ["Game Over"],
           };
         }
@@ -125,6 +129,7 @@ function reducer(state, action) {
           ...state,
           isPlaying: false,
           addNewScoreLeaderboard: true,
+          gameWin: true,
           message: ["You win!"],
         };
       }
@@ -143,7 +148,22 @@ function reducer(state, action) {
       return {
         ...state,
         isPlaying: false,
+        gameWin: false,
         message: ["Game over"],
+      };
+    }
+    case "PLAY_AGAIN": {
+      return {
+        ...state,
+        isPlaying: true,
+        timer: allGameModes[0].timer,
+        lives: allGameModes[0].lives,
+        score: 0,
+        multiplier: 1,
+        message: ["Start!"],
+        flippedCards: [],
+        matchedCards: [],
+        gameWin: false,
       };
     }
   }
@@ -152,6 +172,8 @@ function reducer(state, action) {
 const initialState = {
   status: "game-mode",
   gameMode: allGameModes[0].name,
+  description: allGameModes[0].description,
+  changeableSettings: allGameModes[0].changeableSettings,
   activeTheme: "blueTheme",
   theme: allGameModes[0].theme,
   difficulty: allGameModes[0].difficulty,
@@ -164,6 +186,7 @@ const initialState = {
   randomCards: [],
   flippedCards: [],
   matchedCards: [],
+  gameWin: false,
 };
 
 function Play() {
@@ -172,6 +195,7 @@ function Play() {
   if (state.status === "game-mode") return <GameModes state={state} dispatch={dispatch} allGameModes={allGameModes} />;
   if (state.status === "settings") return <Settings dispatch={dispatch} state={state} />;
   if (state.status === "play") return <Game dispatch={dispatch} state={state} />;
+  if (state.status === "leaderboard") return <Leaderboard />;
 }
 
 export default Play;

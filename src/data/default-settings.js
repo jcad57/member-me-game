@@ -10,6 +10,7 @@ const defaultSettings = [
     timer: true,
     lives: 6,
     sound: true,
+    changeableSettings: ["theme"],
   },
   {
     name: "casual",
@@ -19,6 +20,7 @@ const defaultSettings = [
     timer: false,
     lives: 6,
     sound: true,
+    changeableSettings: ["theme", "difficulty", "timer", "sound"],
   },
   {
     name: "versus",
@@ -28,6 +30,7 @@ const defaultSettings = [
     timer: true,
     lives: 100,
     sound: true,
+    changeableSettings: ["theme", "difficulty", "timer", "sound"],
   },
   {
     name: "zen",
@@ -37,6 +40,7 @@ const defaultSettings = [
     timer: false,
     lives: null,
     sound: true,
+    changeableSettings: ["theme", "difficulty", "sound"],
   },
 ];
 
