@@ -3,7 +3,12 @@ import Button from "./Button";
 import ThemeIcon from "./ThemeIcon";
 
 function Settings({ state, dispatch }) {
-  console.log(state.changeableSettings);
+
+  function startGame(){
+    dispatch({type: "SET_SHUFFLED_CARDS"})
+    dispatch({ type: "UPDATE_MULTIPLE", payload: { status: "play", isPlaying: true, flippedCards: [] } })
+  }
+
   return (
     <div className="game-container place-items-center">
       <div className="content-container">
@@ -62,7 +67,7 @@ function Settings({ state, dispatch }) {
         </div>
         <Button
           type="is-primary"
-          onClick={() => dispatch({ type: "UPDATE_MULTIPLE", payload: { status: "play", isPlaying: true } })}>
+          onClick={() => startGame()}>
           START
         </Button>
         <Button type="is-warning" onClick={() => dispatch({ type: "CHANGE_GAME_STATUS", payload: "game-mode" })}>

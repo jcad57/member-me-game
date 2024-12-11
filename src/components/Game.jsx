@@ -13,7 +13,8 @@ function Game({ state, dispatch }) {
     const gameTimer = setInterval(() => {
       if (timer === 1) {
         setTimer(0);
-        dispatch({ type: "END_GAME" });
+        dispatch({ type: "UPDATE_MULTIPLE", payload: {isPlaying: false,
+          gameWin: false, gameOverMessage: "You ran out of time."} });
         return;
       }
       setTimer((prevTime) => prevTime - 1);
@@ -21,6 +22,11 @@ function Game({ state, dispatch }) {
 
     return () => clearInterval(gameTimer);
   }, [timer, state.isPlaying, dispatch]);
+
+  function handlePlayAgain(){
+    setTimer(state.gameSettings.timer ? 120 : null);
+    dispatch({type: "PLAY_AGAIN"})
+  }
 
   return (
     <div style={{ background: `#${state.theme[0]}` }} className="game-container  ">
@@ -34,7 +40,7 @@ function Game({ state, dispatch }) {
         </Button>
       </div>
       {/* Game over pop up that displays score and options */}
-      <GameOverDialogue state={state} dispatch={dispatch} />
+      <GameOverDialogue state={state} dispatch={dispatch} handlePlayAgain={handlePlayAgain}/>
     </div>
   );
 }

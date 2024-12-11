@@ -3,22 +3,22 @@ import Card from "./Card";
 
 function Grid({ dispatch, state }) {
   const { randomCards, flippedCards, matchedCards, isPlaying } = state;
-  console.log(flippedCards);
-  useEffect(() => {
-    // Shuffle the cards on mount
-    function shuffleCards() {
-      let newCards;
-      if (state.difficulty === "easy") newCards = state.theme.slice(0, 6);
-      if (state.difficulty === "normal") newCards = state.theme.slice(0, 8);
-      if (state.difficulty === "hard") newCards = state.theme;
-      const newCardPairs = [...newCards, ...newCards];
-      const newRandomizedCards = newCardPairs
-        .sort(() => Math.random() - 0.5)
-        .map((card, index) => ({ id: index, content: card, flipped: false }));
-      dispatch({ type: "SET_SHUFFLED_CARDS", payload: newRandomizedCards });
-    }
-    if (isPlaying) shuffleCards();
-  }, [state.difficulty, dispatch, state.theme, isPlaying]);
+
+  // useEffect(() => {
+  //   // Shuffle the cards on mount
+  //   function shuffleCards() {
+  //     let newCards;
+  //     if (state.difficulty === "easy") newCards = state.theme.slice(0, 6);
+  //     if (state.difficulty === "normal") newCards = state.theme.slice(0, 8);
+  //     if (state.difficulty === "hard") newCards = state.theme;
+  //     const newCardPairs = [...newCards, ...newCards];
+  //     const newRandomizedCards = newCardPairs
+  //       .sort(() => Math.random() - 0.5)
+  //       .map((card, index) => ({ id: index, content: card, flipped: false }));
+  //     dispatch({ type: "SET_SHUFFLED_CARDS", payload: newRandomizedCards });
+  //   }
+  //   if (isPlaying) shuffleCards();
+  // }, [state.difficulty, dispatch, state.theme, isPlaying]);
 
   function handleCardClick(card) {
     if (state.isPlaying && !flippedCards.includes(card.id)) {
