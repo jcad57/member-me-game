@@ -1,7 +1,7 @@
 import Button from "./Button";
 
-function GameOverDialogue({ state, dispatch }) {
-  const { score, isPlaying, gameWin, gameOverMessage } = state;
+function GameOverPopup({ state, dispatch, setPage }) {
+  const { score, isPlaying, gameOverMessage } = state;
 
   if (!isPlaying) {
     return (
@@ -12,7 +12,7 @@ function GameOverDialogue({ state, dispatch }) {
           <Button type="is-primary" onClick={() => dispatch({ type: "START_NEW_GAME" })}>
             Play Again
           </Button>
-          <Button type="is-warning" onClick={() => dispatch({ type: "CHANGE_GAME_STATUS", payload: "game-mode" })}>
+          <Button type="is-warning" onClick={() => setPage("game-mode")}>
             Menu
           </Button>
         </div>
@@ -21,4 +21,4 @@ function GameOverDialogue({ state, dispatch }) {
   }
 }
 
-export default GameOverDialogue;
+export default GameOverPopup;

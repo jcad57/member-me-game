@@ -2,22 +2,14 @@ import { useEffect } from "react";
 import Button from "./Button";
 import Grid from "./Grid";
 import Hud from "./Hud";
-import GameOverDialogue from "./GameOverDialogue";
+import GameOverPopup from "./GameOverPopup";
 
-function Game({ state, dispatch }) {
+function Game({ state, dispatch, setPage }) {
   // Handle Gameplay Timer
   useEffect(() => {
     if (!state.isPlaying || state.timeLeft <= 0 || state.timer === null) return;
 
     const gameTimer = setInterval(() => {
-      // Check if out of time
-      if (state.timeLeft === 1) {
-        dispatch({
-          type: "UPDATE_MULTIPLE",
-          payload: { isPlaying: false, gameWin: false, gameOverMessage: "You ran out of time." },
-        });
-        return;
-      }
       dispatch({ type: "DECREMENT_TIME_LEFT" });
     }, 1000);
 
@@ -36,7 +28,7 @@ function Game({ state, dispatch }) {
         </Button>
       </div>
       {/* Game over pop up that displays score and options */}
-      <GameOverDialogue state={state} dispatch={dispatch} />
+      <GameOverPopup state={state} dispatch={dispatch} setPage={setPage} />
     </div>
   );
 }

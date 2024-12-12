@@ -1,4 +1,3 @@
-// Extract default settings
 import defaultSettings from "../data/default-settings";
 
 // Set the default settings and game mode to "Arcade" which is located at index [0] inside defaultSettings.js
@@ -92,7 +91,6 @@ export const gameReducer = (state, action) => {
         ...state,
         isPlaying: true,
         gameWin: false,
-        timer: state.timer ? 120 : null,
         lives: state.totalLives,
         score: 0,
         multiplier: 1,
@@ -105,10 +103,23 @@ export const gameReducer = (state, action) => {
       };
     }
     case "DECREMENT_TIME_LEFT": {
-      return {
-        ...state,
-        timeLeft: state.timeLeft - 1,
-      };
+      if (state.timeLeft !== 1)
+        return {
+          ...state,
+          timeLeft: state.timeLeft - 1,
+        };
+
+      if (state.timeLeft === 1)
+        return {
+          ...state,
+          timeLeft: 0,
+          isPlaying: false,
+          gameWin: false,
+          message: ["Game Over"],
+          gameOverMessage: "You ran out of time",
+        };
+
+      return state;
     }
     case "SET_FLIPPED_CARDS": {
       return {
@@ -151,6 +162,7 @@ export const gameReducer = (state, action) => {
             isPlaying: false,
             gameWin: false,
             message: ["Game Over"],
+            gameOverMessage: "You ran out of lives",
           };
         }
         newMultiplier = 1;
@@ -194,6 +206,7 @@ export const gameReducer = (state, action) => {
         isPlaying: false,
         gameWin: false,
         message: ["Game over"],
+        gameOverMessage: "You ended the game",
       };
     }
     case "CHANGE_GAME_OVER_MESSAGE": {
