@@ -4,10 +4,9 @@ import GameMode from "./GameMode";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-function GameModes({ dispatch, allGameModes, state }) {
+function GameModes({ dispatch, allGameModes, state, setPage }) {
   let navigate = useNavigate();
   const [activeGameMode, setActiveGameMode] = useState("arcade");
-
   return (
     <div className="game-container place-items-center">
       <div className="content-container">
@@ -26,7 +25,7 @@ function GameModes({ dispatch, allGameModes, state }) {
           ))}
         </div>
         <div className="btn-container">
-          <Button type="is-primary" onClick={() => dispatch({ type: "CHANGE_GAME_STATUS", payload: "settings" })}>
+          <Button type="is-primary" onClick={() => setPage("settings")}>
             SELECT
           </Button>
           <Button type="is-warning" onClick={() => navigate(-1)}>

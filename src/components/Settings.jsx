@@ -2,11 +2,10 @@ import themes from "../data/themes";
 import Button from "./Button";
 import ThemeIcon from "./ThemeIcon";
 
-function Settings({ state, dispatch }) {
-
-  function startGame(){
-    dispatch({type: "SET_SHUFFLED_CARDS"})
-    dispatch({ type: "UPDATE_MULTIPLE", payload: { status: "play", isPlaying: true, flippedCards: [] } })
+function Settings({ state, dispatch, setPage }) {
+  function handleStartGame() {
+    setPage("play");
+    dispatch({ type: "START_NEW_GAME" });
   }
 
   return (
@@ -65,12 +64,10 @@ function Settings({ state, dispatch }) {
             </div>
           )}
         </div>
-        <Button
-          type="is-primary"
-          onClick={() => startGame()}>
+        <Button type="is-primary" onClick={() => handleStartGame()}>
           START
         </Button>
-        <Button type="is-warning" onClick={() => dispatch({ type: "CHANGE_GAME_STATUS", payload: "game-mode" })}>
+        <Button type="is-warning" onClick={() => setPage("game-mode")}>
           BACK
         </Button>
       </div>

@@ -1,37 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Button from "./Button";
 import Grid from "./Grid";
 import Hud from "./Hud";
 import GameOverDialogue from "./GameOverDialogue";
 
 function Game({ state, dispatch }) {
-  const [timer, setTimer] = useState(state.timer ? 120 : null);
-
+  // Handle Gameplay Timer
   useEffect(() => {
-    if (!state.isPlaying || timer <= 0) return;
+    if (!state.isPlaying || state.timeLeft <= 0 || state.timer === null) return;
 
     const gameTimer = setInterval(() => {
-      if (timer === 1) {
-        setTimer(0);
-        dispatch({ type: "UPDATE_MULTIPLE", payload: {isPlaying: false,
-          gameWin: false, gameOverMessage: "You ran out of time."} });
+      // Check if out of time
+      if (state.timeLeft === 1) {
+        dispatch({
+          type: "UPDATE_MULTIPLE",
+          payload: { isPlaying: false, gameWin: false, gameOverMessage: "You ran out of time." },
+        });
         return;
       }
-      setTimer((prevTime) => prevTime - 1);
+      dispatch({ type: "DECREMENT_TIME_LEFT" });
     }, 1000);
 
     return () => clearInterval(gameTimer);
-  }, [timer, state.isPlaying, dispatch]);
-
-  function handlePlayAgain(){
-    setTimer(state.gameSettings.timer ? 120 : null);
-    dispatch({type: "PLAY_AGAIN"})
-  }
+  }, [state.timeLeft, state.isPlaying, state.timer, dispatch]);
 
   return (
     <div style={{ background: `#${state.theme[0]}` }} className="game-container  ">
       <div className="">
-        <Hud lives={state.lives} score={state.score} timer={timer} state={state} />
+        <Hud lives={state.lives} score={state.score} timer={state.timeLeft} state={state} />
         <Grid state={state} dispatch={dispatch} />
       </div>
       <div className="btn-container">
@@ -40,7 +36,7 @@ function Game({ state, dispatch }) {
         </Button>
       </div>
       {/* Game over pop up that displays score and options */}
-      <GameOverDialogue state={state} dispatch={dispatch} handlePlayAgain={handlePlayAgain}/>
+      <GameOverDialogue state={state} dispatch={dispatch} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-function GameMode({ name, description, dispatch, state }) {
+function GameMode({ name, description, state, dispatch }) {
   return (
     <div
       className={`game-mode-cell ${state.gameMode === name ? "active-game-mode" : ""}`}
