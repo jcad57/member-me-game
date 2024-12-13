@@ -3,6 +3,12 @@ import Settings from "./Settings";
 import Game from "./Game";
 import Leaderboard from "./Leaderboard";
 
+/* TODO: 
+1. Fix "exposed" API key (secrets detected) per warning from github
+2. Clean up/refactor Settings component 
+*/
+
+
 import defaultSettings from "../data/default-settings";
 const allGameModes = defaultSettings.defaultSettings;
 
