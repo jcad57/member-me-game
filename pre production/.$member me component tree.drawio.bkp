@@ -1,0 +1,115 @@
+<mxfile host="Electron" modified="2024-11-26T03:31:12.315Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="gwDXGQdsxfmzCT72AlJB" version="23.0.2" type="device">
+  <diagram name="Page-1" id="3xY6vU8e73zWUQGWllxZ">
+    <mxGraphModel dx="1773" dy="1035" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillStyle=hatch;fillColor=#7000fa;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="416.77" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--2" value="VIEWPORT 100%" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--3" value="" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="60" width="406.77" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--4" value="GAME container&lt;br&gt;&lt;br&gt;height: 100dvh" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="70" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--5" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="160" width="310" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--6" value="MENU container&lt;br&gt;display: grid - place items center&lt;br&gt;justify content center" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="203.39" y="170" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--10" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="250" width="230" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--7" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="163.39" y="470" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--8" value="BUTTON component" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="485" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--11" value="MENU item component&lt;br&gt;&lt;br&gt;use &#39;children&#39; and then set contents of menu item to game modes/settings/etc based on the page you&#39;re on" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="290" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--12" value="" style="rounded=1;whiteSpace=wrap;html=1;fillStyle=hatch;fillColor=#7000fa;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="416.77" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--13" value="" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="650" y="60" width="406.77" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--14" value="GAME container" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--15" value="HUD component" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="90" width="360" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--16" value="BONUSES component" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="180" width="360" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--17" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="250" width="370" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--18" value="Grid container" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="782" y="260" width="136" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--20" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="300.01" width="80" height="93.33" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--21" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="859" y="300" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--23" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="948" y="300" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--24" value="Card component" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="681" y="300" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--25" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="770.5" y="400.01" width="80" height="93.33" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--26" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="859.5" y="400" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--27" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="948.5" y="400" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--28" value="Card component" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="681.5" y="400" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--29" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="772" y="500.01" width="80" height="93.33" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--30" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="861" y="500" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--31" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="500" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--32" value="Card component" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="683" y="500" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--33" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="772" y="600.01" width="80" height="93.33" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--34" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="861" y="600" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--35" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="600" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--36" value="Card component" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="683" y="600" width="80" height="93.34" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--37" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="765" y="700" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LKvW2YCi6UFXCI9Pr_B--38" value="BUTTON component" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="801.61" y="715" width="140" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
