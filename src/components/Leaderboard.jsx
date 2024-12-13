@@ -1,11 +1,12 @@
 import useFetchLeaderboard from "../hooks/useFetchLeaderboard";
+import Button from "./Button";
 
-function Leaderboard() {
+function Leaderboard({ setPage }) {
   const leaderboard = useFetchLeaderboard("leaderboard");
 
   return (
     <div className="game-container place-items-center ">
-      <div className="nes-container is-centered">
+      <div className="nes-container is-dark is-centered">
         <h1 className="game-subtitle heading capitalize">LEADERBOARD</h1>
         <div className="leaderboard">
           <div className="flex-space-btwn fnt-clr-yellow">
@@ -23,6 +24,9 @@ function Leaderboard() {
             ))}
           </div>
         </div>
+
+        <Button type="is-primary" onClick={() => setPage("game-mode")}>Menu</Button>
+
       </div>
     </div>
   );

@@ -183,6 +183,13 @@ body {
   aspect-ratio: 1;
 }
 
+.new-high-score-container {
+  margin-block: 1.5rem;
+  padding-block: 1.5rem;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+}
+
 /* Utility Classes */
 
 .flex-col {
@@ -202,7 +209,7 @@ body {
 }
 
 .text-upper {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .margin-2 {
@@ -252,6 +259,7 @@ body {
   place-items: center;
   gap: 0.5rem;
   min-width: 200px;
+
 }
 
 .game-description {
@@ -303,6 +311,7 @@ body {
 .leaderboard-list {
   color: white;
   list-style: none;
+  margin-bottom: 2rem;
 }
 
 .flex-space-btwn {
@@ -311,8 +320,8 @@ body {
 }
 
 @media (min-width: 390px) {
-  .game-container {
+  .content-container {
     max-width: 390px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
   }
 }

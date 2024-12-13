@@ -1,4 +1,5 @@
 import defaultSettings from "../data/default-settings";
+import useWriteToLeaderboard from "../hooks/useWriteToLeaderboard";
 
 // Set the default settings and game mode to "Arcade" which is located at index [0] inside defaultSettings.js
 const gameplayDefaultSettings = defaultSettings.defaultSettings[0];
@@ -32,6 +33,7 @@ export const initialState = {
   flippedCards: [],
   matchedCards: [],
   gameWin: false,
+  newHighScore: false,
 };
 
 export const gameReducer = (state, action) => {
@@ -45,9 +47,10 @@ export const gameReducer = (state, action) => {
       if (action.payload === "zen") gameModeIndex = 3;
       return {
         ...state,
+        // activeTheme: allGameModes[gameModeIndex].theme,
         gameMode: allGameModes[gameModeIndex].name,
         difficulty: allGameModes[gameModeIndex].difficulty,
-        timer: allGameModes[gameModeIndex].time,
+        timer: allGameModes[gameModeIndex].timer,
         lives: allGameModes[gameModeIndex].lives,
         sound: allGameModes[gameModeIndex].sound,
         changeableSettings: allGameModes[gameModeIndex].changeableSettings,
@@ -180,13 +183,15 @@ export const gameReducer = (state, action) => {
     }
     case "CHECK_FOR_WIN": {
       if (state.matchedCards.length === state.randomCards.length) {
+
         return {
           ...state,
+          newHighScore: true,
           isPlaying: false,
           addNewScoreLeaderboard: true,
           gameWin: true,
-          message: ["You win!"],
-          gameOverMessage: "You win!",
+          message: ["WOOHOO"],
+          gameOverMessage: "YOU WIN!",
         };
       }
       return state;
@@ -214,6 +219,9 @@ export const gameReducer = (state, action) => {
         ...state,
         gameOverMessage: action.payload,
       };
+    }
+    case "SUBMIT_NEW_HIGHSCORE": {
+      useWriteToLeaderboard(action.payload, state.score);
     }
     default:
       return state;

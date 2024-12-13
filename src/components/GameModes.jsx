@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 function GameModes({ dispatch, allGameModes, state, setPage }) {
   let navigate = useNavigate();
   const [activeGameMode, setActiveGameMode] = useState("arcade");
+  
   return (
     <div className="game-container place-items-center">
       <div className="content-container">
