@@ -94,6 +94,7 @@ export const gameReducer = (state, action) => {
         ...state,
         isPlaying: true,
         gameWin: false,
+        newHighScore: false,
         lives: state.totalLives,
         score: 0,
         multiplier: 1,
@@ -125,6 +126,7 @@ export const gameReducer = (state, action) => {
       return state;
     }
     case "SET_FLIPPED_CARDS": {
+
       return {
         ...state,
         flippedCards: [...state.flippedCards, action.payload],

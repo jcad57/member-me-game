@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Button from "./Button";
 
 function MainMenu() {
+ 
   return (
     <div className="game-container place-items-center">
       <div className="content-container">
@@ -9,9 +11,7 @@ function MainMenu() {
           <Button type="is-primary" link="play">
             Play
           </Button>
-          <Button type="is-warning" link="leaderboard">
-            Leaderboard
-          </Button>
+
         </div>
       </div>
     </div>

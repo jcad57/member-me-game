@@ -12,7 +12,7 @@ function Settings({ state, dispatch, setPage }) {
     <div className="game-container place-items-center">
       <div className="content-container">
         <h1 className="game-subtitle heading capitalize">{state.gameMode}</h1>
-        <p className="game-description">{state.description}</p>
+        {/* <p className="game-description">{state.description}</p> */}
         <div className="content-container nes-container is-dark">
           {state.changeableSettings.includes("theme") && (
             <div className="content-section">

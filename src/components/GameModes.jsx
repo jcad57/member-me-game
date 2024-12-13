@@ -4,7 +4,10 @@ import GameMode from "./GameMode";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-function GameModes({ dispatch, allGameModes, state, setPage }) {
+import defaultSettings from "../data/default-settings";
+const allGameModes = defaultSettings.defaultSettings;
+
+function GameModes({ dispatch, state, setPage }) {
   let navigate = useNavigate();
   const [activeGameMode, setActiveGameMode] = useState("arcade");
   
