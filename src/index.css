@@ -185,6 +185,10 @@ body {
 
 /* Utility Classes */
 
+.flex-col {
+  display: flex;
+  justify-content: space-between;
+}
 .fnt-size-md {
   font-size: 1rem;
 }
@@ -193,8 +197,16 @@ body {
   font-size: 0.688rem;
 }
 
+.fnt-clr-yellow {
+  color: yellow;
+}
+
 .text-upper {
   text-transform: uppercase;
+}
+
+.margin-2 {
+  margin-inline: 2rem;
 }
 
 .capitalize {
@@ -286,6 +298,16 @@ body {
   border-color: white;
   color: white;
   max-width: 338px;
+}
+
+.leaderboard-list {
+  color: white;
+  list-style: none;
+}
+
+.flex-space-btwn {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 390px) {
