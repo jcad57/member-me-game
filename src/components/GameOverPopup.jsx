@@ -17,7 +17,7 @@ function GameOverPopup({ state, dispatch, setPage }) {
         <p>{gameOverMessage}</p>
         <p>Score: {score}</p>
         {state.newHighScore && 
-        <div className="new-high-score-container"><p className="active-difficulty-setting">NEW HIGH SCORE!</p>
+        <div className="new-high-score-container"><p className="active-difficulty-setting">SUBMIT YOUR SCORE!</p>
         Name:
           <div style={{padding: "1rem"}} className="nes-field is-inline">
             <input type="text" id="dark_field" className="nes-input is-dark" onChange={(e)=>setHighscoreName(e.target.value)} />

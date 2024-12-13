@@ -2,8 +2,9 @@ import useFetchLeaderboard from "../hooks/useFetchLeaderboard";
 import Button from "./Button";
 
 function Leaderboard({ setPage }) {
-  const leaderboard = useFetchLeaderboard("leaderboard");
-
+  const {leaderboard, isLoading, error} = useFetchLeaderboard("leaderboard");
+  if (isLoading) return <h2>Loading...</h2>;
+  if (error) return <h2 style={{color: "red"}}>Error!</h2>
   return (
     <div className="game-container place-items-center ">
       <div className="nes-container is-dark is-centered">

@@ -1,23 +1,74 @@
-import { useState, useEffect } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
-import { db } from "../data/firebase";
+// import { useState, useEffect } from "react";
+// import { collection, onSnapshot, orderBy, limit } from "firebase/firestore";
+// import { db } from "../data/firebase";
 
-const useFetchLeaderboard = (collectionName) => {
-  const [data, setData] = useState([]);
+// const useFetchLeaderboard = (collectionName) => {
+//   const [data, setData] = useState([]);
+
+//   useEffect(() => {
+//     const unsubscribe = onSnapshot(collection(db, collectionName), (snapshot) => {
+//       const newData = [];
+//       snapshot.forEach((doc) => {
+//         newData.push({ id: doc.id, ...doc.data() });
+//       });
+//       setData(newData);
+//     });
+
+//     return unsubscribe; // Cleanup subscription
+//   }, [collectionName]);
+
+//   return data;
+// };
+
+// hooks/useLeaderboard.js
+import { useState, useEffect } from 'react';
+import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { db } from '../data/firebase';  // Adjust the path to your Firebase setup
+
+const useFetchLeaderboard = () => {
+  const [leaderboard, setLeaderboard] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, collectionName), (snapshot) => {
-      const newData = [];
-      snapshot.forEach((doc) => {
-        newData.push({ id: doc.id, ...doc.data() });
-      });
-      setData(newData);
-    });
+    // Function to fetch the top 10 leaderboard
+    const fetchLeaderboard = async () => {
+      try {
+        // Get a reference to the 'leaderboard' collection
+        const colRef = collection(db, 'leaderboard'); // Replace with your collection name
 
-    return unsubscribe; // Cleanup subscription
-  }, [collectionName]);
+        // Create a query to order by 'score' in descending order and limit the result to 10 documents
+        const q = query(colRef, orderBy('score', 'desc'), limit(10));
 
-  return data;
+        // Execute the query
+        const querySnapshot = await getDocs(q);
+
+        // Map the documents to an array of objects
+        const leaderboardData = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        // Update state with the leaderboard data
+        setLeaderboard(leaderboardData);
+      } catch (err) {
+        // Set error state if an error occurs
+        setError('Failed to fetch leaderboard: ' + err.message);
+      } finally {
+        // Set loading to false when data fetching is complete
+        setIsLoading(false);
+      }
+    };
+
+    fetchLeaderboard(); // Call the function when the component mounts
+
+  }, []);  // Empty dependency array to ensure the effect runs only once on mount
+
+  return {
+    leaderboard,
+    isLoading,
+    error,
+  };
 };
 
 export default useFetchLeaderboard;
