@@ -3,6 +3,7 @@ import Button from "./Button";
 import Grid from "./Grid";
 import Hud from "./Hud";
 import GameOverPopup from "./GameOverPopup";
+import Bonuses from "./Bonuses";
 
 function Game({ state, dispatch, setPage }) {
   // Handle Gameplay Timer
@@ -17,19 +18,23 @@ function Game({ state, dispatch, setPage }) {
   }, [state.timeLeft, state.isPlaying, state.timer, dispatch]);
 
   return (
-    <div style={{ background: `#${state.theme[0]}` }} className="game-container  ">
-      <div className="">
-        <Hud lives={state.lives} score={state.score} timer={state.timeLeft} state={state} />
-        <Grid state={state} dispatch={dispatch} />
-      </div>
-      <div className="btn-container">
-        <Button type="is-warning" onClick={() => dispatch({ type: "END_GAME" })}>
-          End Game
-        </Button>
+    <>
+      <div style={{ background: `#${state.theme[0]}` }} className="game-container ">
+        <div className="content-container gap-4">
+          <Hud lives={state.lives} score={state.score} timer={state.timeLeft} state={state} />
+          <Grid state={state} dispatch={dispatch} />
+
+          <div className="btn-container">
+            <Button type="is-warning" onClick={() => dispatch({ type: "END_GAME" })}>
+              End Game
+            </Button>
+          </div>
+        </div>
       </div>
       {/* Game over pop up that displays score and options */}
       <GameOverPopup state={state} dispatch={dispatch} setPage={setPage} />
-    </div>
+      <Bonuses state={state} />
+    </>
   );
 }
 

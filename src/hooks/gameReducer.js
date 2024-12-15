@@ -1,5 +1,6 @@
 import defaultSettings from "../data/default-settings";
 import useWriteToLeaderboard from "../hooks/useWriteToLeaderboard";
+import useFetchLeaderboard from "./useFetchLeaderboard";
 
 // Set the default settings and game mode to "Arcade" which is located at index [0] inside defaultSettings.js
 const gameplayDefaultSettings = defaultSettings.defaultSettings[0];
@@ -126,7 +127,6 @@ export const gameReducer = (state, action) => {
       return state;
     }
     case "SET_FLIPPED_CARDS": {
-
       return {
         ...state,
         flippedCards: [...state.flippedCards, action.payload],
@@ -154,8 +154,8 @@ export const gameReducer = (state, action) => {
         // Update score / multiplier / lives / message
         newScore = state.score + 5 * state.multiplier;
         newMultiplier = state.multiplier < 3 ? state.multiplier + 1 : state.multiplier;
-        newLives = state.lives + 1;
-        newMessage = ["Match!", "+1 Heart", `Multiplier: ${newMultiplier}`];
+        newLives = state.lives === 8 ? state.lives : state.lives + 1;
+        newMessage = [newLives === 8 ? "Max hearts!" : "+1 Heart", `Multiplier: ${newMultiplier}`];
       } else {
         // No match: subtract lives, reset multiplier, check for game-over
         // If lives will not equal 0 on this turn, then subtract 1 from lives
@@ -172,7 +172,7 @@ export const gameReducer = (state, action) => {
         }
         newMultiplier = 1;
         newMatchedCards = state.matchedCards;
-        newMessage = ["No match", "-1 Heart"];
+        newMessage = ["-1 Heart"];
       }
       return {
         ...state,
@@ -185,7 +185,6 @@ export const gameReducer = (state, action) => {
     }
     case "CHECK_FOR_WIN": {
       if (state.matchedCards.length === state.randomCards.length) {
-
         return {
           ...state,
           newHighScore: true,

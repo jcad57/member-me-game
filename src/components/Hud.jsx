@@ -1,9 +1,7 @@
-import Bonuses from "./Bonuses";
-
-function Hud({ lives, score, timer, state }) {
+function Hud({ lives, score, timer }) {
   const livesArray = Array.from({ length: lives });
   return (
-    <div>
+    <>
       <div className="hud-container">
         <div className="hud-item">
           <div>LIVES</div>
@@ -20,8 +18,7 @@ function Hud({ lives, score, timer, state }) {
           <div>TIME</div> <div>{timer !== null ? timer : "---"}</div>
         </div>
       </div>
-      <Bonuses state={state} />
-    </div>
+    </>
   );
 }
 

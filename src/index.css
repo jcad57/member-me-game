@@ -82,10 +82,25 @@ body {
   background: radial-gradient(#414141, #141414);
 }
 
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Invisible */
+  }
+}
+
 .game-container {
   display: grid;
   width: 100%;
+  height: 100svh;
   height: 100dvh;
+}
+
+.game-description-container {
+  max-width: 350px;
 }
 
 .game-mode-container {
@@ -133,8 +148,9 @@ body {
   justify-content: space-between;
   color: white;
   text-align: center;
-  padding: 0.5rem;
-  min-height: 90px;
+  width: 100%;
+  min-height: 56px;
+  /* gap: 2rem; */
 }
 
 .lives-container {
@@ -144,26 +160,17 @@ body {
 }
 
 .bonuses-container {
-  display: flex;
-  flex-direction: column;
-  height: 100px;
+  position: absolute;
+  top: 12vh;
+  left: 50vw;
+  transform: translateX(-50%);
   text-align: center;
   color: yellow;
-  /* margin-bottom: 2.5rem; */
+  width: 100%;
 }
 
 .message {
   margin-bottom: 0.25rem;
-}
-
-@keyframes flash {
-  0%,
-  100% {
-    opacity: 1; /* Fully visible */
-  }
-  50% {
-    opacity: 0; /* Invisible */
-  }
 }
 
 .flash-text {
@@ -175,12 +182,15 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-inline: 1.5rem;
+  width: 100%;
 }
 
 .grid-square {
   outline: 4px solid white;
   background-color: #249eea;
+  color: lightgray;
   aspect-ratio: 1;
+  width: 100%;
 }
 
 .new-high-score-container {
@@ -191,6 +201,11 @@ body {
 }
 
 /* Utility Classes */
+
+.max-width-390 {
+  max-width: 390px;
+  margin-inline: auto;
+}
 
 .flex-col {
   display: flex;
@@ -207,9 +222,12 @@ body {
 .fnt-clr-yellow {
   color: yellow;
 }
+.fnt-clr-white {
+  color: white;
+}
 
 .text-upper {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .margin-2 {
@@ -224,15 +242,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
   margin-inline: 1.25rem;
+  margin-block: 1rem;
   gap: 1rem;
 }
 
 .content-section {
   display: grid;
   gap: 0.75rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .section-heading {
@@ -259,7 +278,6 @@ body {
   place-items: center;
   gap: 0.5rem;
   min-width: 200px;
-
 }
 
 .game-description {
@@ -281,7 +299,6 @@ body {
 
 .game-title {
   font-size: 3rem;
-  margin-bottom: 5rem;
 }
 
 .game-subtitle {
@@ -290,8 +307,8 @@ body {
 
 .settings-list {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  /* flex-direction: column; */
+  gap: 0.75rem;
   text-align: center;
   list-style: none;
 }
@@ -319,9 +336,29 @@ body {
   justify-content: space-between;
 }
 
-@media (min-width: 390px) {
+@media (min-width: 400px) {
+  .game-container {
+    justify-content: center;
+  }
+
   .content-container {
-    max-width: 390px;
-    /* margin: 0 auto; */
+    min-width: 358px;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .gap-2 {
+    gap: 2rem;
+  }
+  .gap-4 {
+    gap: 4rem;
+  }
+
+  .game-grid {
+    margin-top: 2rem;
+  }
+
+  .bonuses-container {
+    top: 7vw;
   }
 }

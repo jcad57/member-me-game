@@ -1,11 +1,11 @@
 import Card from "./Card";
 
 function Grid({ dispatch, state }) {
-  const { randomCards, flippedCards, matchedCards, isPlaying } = state;
+  const { randomCards, flippedCards, matchedCards } = state;
 
   function handleCardClick(card) {
     if (state.isPlaying && !state.flippedCards.includes(card.id) && !state.matchedCards.includes(card.id)) {
-      if (state.flippedCards.length < 2 ) dispatch({ type: "SET_FLIPPED_CARDS", payload: card.id });
+      if (state.flippedCards.length < 2) dispatch({ type: "SET_FLIPPED_CARDS", payload: card.id });
 
       if (state.flippedCards.length === 1) {
         dispatch({ type: "CHECK_FOR_MATCH" });
