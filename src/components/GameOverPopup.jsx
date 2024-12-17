@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Button from "./Button";
+import useWriteToLeaderboard from "../hooks/useWriteToLeaderboard";
 // import useFetchLeaderboard from "../hooks/useFetchLeaderboard";
 
 function GameOverPopup({ state, dispatch, setPage }) {
@@ -9,7 +10,7 @@ function GameOverPopup({ state, dispatch, setPage }) {
   // const { leaderboard } = useFetchLeaderboard();
   // console.log(leaderboard);
   function handleSubmitNewHighscore() {
-    dispatch({ type: "SUBMIT_NEW_HIGHSCORE", payload: highscoreName });
+    useWriteToLeaderboard(highscoreName, state.score)
     setPage("leaderboard");
   }
 

@@ -1,6 +1,5 @@
-import themes from "../data/themes";
 import Button from "./Button";
-import ThemeIcon from "./ThemeIcon";
+import SettingsItem from "./SettingsItem";
 
 function Settings({ state, dispatch, setPage }) {
   function handleStartGame() {
@@ -13,55 +12,8 @@ function Settings({ state, dispatch, setPage }) {
       <div className="content-container">
         <h1 className="game-subtitle heading capitalize">{state.gameMode}</h1>
         <div className="content-container nes-container is-dark">
-          {state.changeableSettings.includes("theme") && (
-            <div className="content-section">
-              <h2 className="section-heading">Theme</h2>
-              <div className="theme-icon-container">
-                {Object.entries(themes.themes).map((theme, i) => (
-                  <ThemeIcon theme={theme} state={state} key={i} dispatch={dispatch} />
-                ))}
-              </div>
-            </div>
-          )}
-          {state.changeableSettings.includes("difficulty") && (
-            <div className="content-section">
-              <h3 className="section-heading">Difficulty</h3>
-              <div className="settings-list">
-                <div
-                  className={state.difficulty === "easy" ? `active-difficulty-setting` : undefined}
-                  onClick={() => dispatch({ type: "CHANGE_DIFFICULTY", payload: "easy" })}>
-                  EASY
-                </div>
-                <div
-                  className={state.difficulty === "normal" ? `active-difficulty-setting` : undefined}
-                  onClick={() => dispatch({ type: "CHANGE_DIFFICULTY", payload: "normal" })}>
-                  NORMAL
-                </div>
-                <div
-                  className={state.difficulty === "hard" ? `active-difficulty-setting` : undefined}
-                  onClick={() => dispatch({ type: "CHANGE_DIFFICULTY", payload: "hard" })}>
-                  HARD
-                </div>
-              </div>
-            </div>
-          )}
-          {state.changeableSettings.includes("timer") && (
-            <div className="content-section">
-              <h3 className="section-heading">Timer</h3>
-              <div className="settings-list">
-                <div
-                  className={state.timer ? `active-difficulty-setting` : undefined}
-                  onClick={() => dispatch({ type: "CHANGE_TIMER", payload: true })}>
-                  ON
-                </div>
-                <div
-                  className={!state.timer ? `active-difficulty-setting` : undefined}
-                  onClick={() => dispatch({ type: "CHANGE_TIMER", payload: false })}>
-                  OFF
-                </div>
-              </div>
-            </div>
-          )}
+        {state.changeableSettings.map((setting, i)=><SettingsItem setting={setting} key={i} state={state} dispatch={dispatch}/> )}
+          
         </div>
         <Button type="is-primary" onClick={() => handleStartGame()}>
           START

@@ -13,6 +13,7 @@ function MainMenu() {
         <Button type="is-primary" link="play">
           Play
         </Button>
+
       </div>
     </div>
   );

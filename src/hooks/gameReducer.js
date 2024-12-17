@@ -28,7 +28,7 @@ export const initialState = {
   timeLeft: gameplayDefaultSettings.timer,
   currentLives: gameplayDefaultSettings.lives,
   multiplier: 1,
-  message: ["Start!"],
+  message: {eventCount: 1, text: ["Start!"]},
   gameOverMessage: "",
   randomCards: [],
   flippedCards: [],
@@ -78,9 +78,16 @@ export const gameReducer = (state, action) => {
         timer: action.payload,
       };
     }
+    case "CHANGE_SOUND": {
+      return {
+        ...state,
+        sound: action.payload,
+      }
+    }
     case "CHANGE_STARTING_LIVES": {
       return;
     }
+
     // GAMEPLAY ACTIONS:
     case "START_NEW_GAME": {
       let newCards;
@@ -99,7 +106,7 @@ export const gameReducer = (state, action) => {
         lives: state.totalLives,
         score: 0,
         multiplier: 1,
-        message: ["Start!"],
+        message: {eventCount: 1, text: ["Start!"]},
         gameOverMessage: "",
         flippedCards: [],
         matchedCards: [],
@@ -120,7 +127,7 @@ export const gameReducer = (state, action) => {
           timeLeft: 0,
           isPlaying: false,
           gameWin: false,
-          message: ["Game Over"],
+          message: {eventCount: state.message.eventCount + 1, text: ["Game Over"]},
           gameOverMessage: "You ran out of time",
         };
 
@@ -166,7 +173,7 @@ export const gameReducer = (state, action) => {
             lives: 0,
             isPlaying: false,
             gameWin: false,
-            message: ["Game Over"],
+            message: {eventCount: state.message.eventCount + 1, text: ["Game Over"]},
             gameOverMessage: "You ran out of lives",
           };
         }
@@ -180,7 +187,7 @@ export const gameReducer = (state, action) => {
         score: newScore ? newScore : state.score,
         multiplier: newMultiplier,
         lives: newLives,
-        message: newMessage,
+        message: {eventCount: state.message.eventCount + 1, text: [...newMessage]},
       };
     }
     case "CHECK_FOR_WIN": {
@@ -191,7 +198,7 @@ export const gameReducer = (state, action) => {
           isPlaying: false,
           addNewScoreLeaderboard: true,
           gameWin: true,
-          message: ["WOOHOO"],
+          message: {eventCount: state.message.eventCount + 1, text: ["WOOHOO"]},
           gameOverMessage: "YOU WIN!",
         };
       }
@@ -211,7 +218,7 @@ export const gameReducer = (state, action) => {
         ...state,
         isPlaying: false,
         gameWin: false,
-        message: ["Game over"],
+        message: {eventCount: state.message.eventCount + 1, text: ["Game Over"]},
         gameOverMessage: "You ended the game",
       };
     }
