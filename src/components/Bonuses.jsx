@@ -1,5 +1,5 @@
 function Bonuses({ state }) {
-  console.log(state.message)
+
   return (
     <div className="bonuses-container">
       {state.message.text.map((message) => (

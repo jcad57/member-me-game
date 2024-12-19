@@ -2,13 +2,11 @@ import { useState } from "react";
 
 import Button from "./Button";
 import useWriteToLeaderboard from "../hooks/useWriteToLeaderboard";
-// import useFetchLeaderboard from "../hooks/useFetchLeaderboard";
 
 function GameOverPopup({ state, dispatch, setPage }) {
   const { score, isPlaying, gameOverMessage } = state;
   const [highscoreName, setHighscoreName] = useState("");
-  // const { leaderboard } = useFetchLeaderboard();
-  // console.log(leaderboard);
+
   function handleSubmitNewHighscore() {
     useWriteToLeaderboard(highscoreName, state.score)
     setPage("leaderboard");
@@ -21,7 +19,7 @@ function GameOverPopup({ state, dispatch, setPage }) {
         <p>Score: {score}</p>
         {
           // If new high score, add section for player to submit their name and score
-          state.newHighScore && (
+          state.gameMode === "arcade" && state.newHighScore && (
             <div className="new-high-score-container">
               <p className="active-difficulty-setting">SUBMIT YOUR SCORE!</p>
               Name:
