@@ -8,16 +8,14 @@ import Leaderboard from "./Leaderboard";
 2. Clean up/refactor Settings component 
 */
 
-
 import defaultSettings from "../data/default-settings";
 const allGameModes = defaultSettings.defaultSettings;
 
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { gameReducer, initialState } from "../hooks/gameReducer";
 
-function Play() {
+function Play({ setPage, page }) {
   const [state, dispatch] = useReducer(gameReducer, initialState);
-  const [page, setPage] = useState("game-mode");
 
   if (page === "game-mode")
     return <GameModes state={state} dispatch={dispatch} allGameModes={allGameModes} setPage={setPage} />;
