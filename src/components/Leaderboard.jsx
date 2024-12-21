@@ -20,7 +20,7 @@ function Leaderboard() {
             {leaderboard.map((item, i) => (
               <div className="flex-space-btwn" key={item.id}>
                 <div>{i + 1}</div>
-                <div>{item.name.length > 10 ? `${item.name.slice(0, 9)}...` : item.name}</div>
+                <div>{item.name.length > 8 ? `${item.name.slice(0, 7)}...` : item.name}</div>
                 <div>{item.score}</div>
               </div>
             ))}

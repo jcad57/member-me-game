@@ -13,9 +13,9 @@ function MainMenu() {
         <Button type="is-primary" link="play">
           Play
         </Button>
-        {/* <Button type="is-warning" link="how-to-play">
+        <Button type="is-warning" link="how-to-play">
           How To Play
-        </Button> */}
+        </Button>
         <Button type="is-success" link="leaderboard">
           Leaderboard
         </Button>
