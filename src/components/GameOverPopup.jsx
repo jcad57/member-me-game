@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 import Button from "./Button";
-import useWriteToLeaderboard from "../hooks/useWriteToLeaderboard";
+import writeToLeaderboard from "../functions/writeToLeaderboard";
 
 function GameOverPopup({ state, dispatch, setPage }) {
   const { score, isPlaying, gameOverMessage } = state;
   const [highscoreName, setHighscoreName] = useState("");
 
   function handleSubmitNewHighscore() {
-    useWriteToLeaderboard(highscoreName, state.score)
+    writeToLeaderboard(highscoreName, state.score);
     setPage("leaderboard");
   }
 

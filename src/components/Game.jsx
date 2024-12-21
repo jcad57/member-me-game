@@ -21,7 +21,13 @@ function Game({ state, dispatch, setPage }) {
     <>
       <div style={{ background: `#${state.theme[0]}` }} className="game-container ">
         <div className="content-container">
-          <Hud lives={state.lives} score={state.score} timer={state.timeLeft} state={state} />
+          <Hud
+            lives={state.lives}
+            score={state.score}
+            timer={state.timeLeft}
+            state={state}
+            multiplier={state.multiplier}
+          />
           <Grid state={state} dispatch={dispatch} />
 
           <div className="btn-container">

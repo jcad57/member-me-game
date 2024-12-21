@@ -243,6 +243,10 @@ body {
   margin-inline: auto;
 }
 
+.width-100 {
+  width: 100%;
+}
+
 .flex-col {
   display: flex;
   justify-content: space-between;
