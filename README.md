@@ -4,7 +4,7 @@
 
 This app is my take on the classic game 'Concentration' where you flip two cards and try to find a match. Find all the matching pairs and you win. I made this app to showcase in my portfolio.
 
-** LIVE LINK : https://vercel.com/jcad57s-projects/member-me-game **
+**LIVE LINK** : https://vercel.com/jcad57s-projects/member-me-game
 
 ## Features
 
