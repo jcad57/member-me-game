@@ -47,6 +47,9 @@ function HowToPlay() {
           </div> */}
           <p>You can only flip two at a time so try and remember where they are!</p>
           <p>Match all the colors to win!</p>
+          <p>
+            To submit your score to the <span className="fnt-clr-yellow">LEADERBOARD</span> beat Arcade mode!
+          </p>
         </div>
         <Button type="is-primary" link="/">
           Back
