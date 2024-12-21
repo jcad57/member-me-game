@@ -20,7 +20,7 @@ function Game({ state, dispatch, setPage }) {
   return (
     <>
       <div style={{ background: `#${state.theme[0]}` }} className="game-container ">
-        <div className="content-container gap-4">
+        <div className="content-container">
           <Hud lives={state.lives} score={state.score} timer={state.timeLeft} state={state} />
           <Grid state={state} dispatch={dispatch} />
 

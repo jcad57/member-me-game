@@ -3,7 +3,7 @@ import Button from "./Button";
 function MainMenu() {
   return (
     <div className="game-container place-items-center">
-      <div className="content-container gap-4">
+      <div className="content-container">
         <h1 className="game-title heading">'member Me?</h1>
         <div className="game-description-container nes-container is-dark is-centered is-rounded">
           <p className="fnt-clr-white">
