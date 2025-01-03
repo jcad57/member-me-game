@@ -29,6 +29,7 @@ From the repo:
 - Built with React / Vite
 - [nes.css](https://nostalgic-css.github.io/NES.css/) framework for the arcade styling
 - [Firebase](https://firebase.google.com/) for the leaderboard
+- [React Router] (https://reactrouter.com/) used mostly for practice, I have not built an app with it before.
 
 ## ToDo List
 
